@@ -1,0 +1,141 @@
+@import "http://serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/dojo/dojox/image/resources/Lightbox.css";
+@import "http://serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/dojo/dijit/themes/nihilo/nihilo.css";
+@import "http://serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/esri/css/esri.css";
+@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dojox/layout/resources/FloatingPane.css";
+@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dojox/layout/resources/ResizeHandle.css";
+
+html, body {
+  	width:100%;
+  	height: 100%;
+	overflow:hidden;
+	margin:auto;
+}
+
+body {
+	text-align: left;
+	background-color:#777;
+	overflow:hidden;
+	font-size: 0.9em;	
+	font-family: 'Open Sans', sans-serif;
+}
+
+#logoBannerDiv {
+	position:absolute;
+	z-index:1;
+	top:15px;
+}
+#logoImg {
+	max-width:100% !important;
+    height:auto;
+    display:block;	
+}
+
+#mapDiv {
+	margin:0px;
+	height:100%;
+	width:100%;
+}
+
+#centerContainer {
+	background-color:white;
+	margin:3px;
+	text-indent:2px;
+}
+#dFloatingPane {
+	max-width:90%;
+}
+#dFloatingPane .dojoxFloatingPaneTitle 
+{
+	cursor:move !important;
+}
+
+.dojoxFloatingMinimizeIcon 
+{
+	cursor:pointer !important;
+}
+
+.clientInfoCanvas
+{
+	position:absolute;
+	z-index:999;
+}
+
+.projectDiv {
+	float:right;
+	text-align:left;
+}
+
+.projectImages {
+	float: left; 
+    margin: 4px; 
+}
+
+.blog-entry-pane {
+	border: 1px solid #CCC;
+	border-radius: 10px;
+	font-size: 12px;
+	padding: 15px 15px 15px 15px !important;
+}
+.blog-date {
+	font-size: 10px;
+}
+.blog-entry-pane:hover {
+	border: 2px solid gray;
+	background-color:#CCC;
+}
+
+ #blogLink:hover{
+	border: 2px solid gray;
+	background-color:#CCC;
+}
+
+li { list-style-type:none; }
+
+#blogLink {
+	border: 1px solid #CCC;
+	border-radius: 10px;
+	padding: 3px 5px 2px 3px;
+}
+
+#footer {
+	margin:3px;
+	background-color:white;
+	height:80px;
+	overflow:hidden;
+	padding:5px;
+}
+
+#legalJunk {
+	font-size:8pt;
+	text-align:center;	
+}
+
+#preloader
+{
+	background-position: center center;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background: #fff url("../images/loading.gif") no-repeat center center;
+	position: absolute;
+	z-index: 999;
+}
+
+.tabContent {
+	background-color:whitesmoke;
+	color:#777;
+	font-size:12pt;
+	font-weight:400;
+	text-align:left;
+	margin:5px;
+}
+
+.bioPicDiv {
+	text-align:left;
+	padding-right:20px;
+	float:left;
+}
+.alignMeRight {
+	text-align:right;
+}
