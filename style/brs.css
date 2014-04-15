@@ -39,6 +39,9 @@ body {
     border-radius: 8px;
     padding: 1em;
 }
+#brs-tab-content {
+    height:90%;
+}
 /*This is to deal with the collision between arcgis js api and bootstrap container class
 bootstrap uses media query to set max width for a container and arcgis uses the container class for the
 injected map parts so we're just going to use wildcard to set all map parts (e.g*/
@@ -51,24 +54,34 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
 }
 .brs-tabs.nav-tabs
 {
-    border-bottom: 1px solid #294294;
+    border-bottom: 2px solid #294294;
+}
+.nav-tabs.brs-tabs li.brs-tab>a
+{
+    border: none;
+    color: #666666;
+    background-color:transparent;
+}
+.nav-tabs.brs-tabs li.brs-tab>a:hover
+{
+    color: #294294;
+    background-color:transparent;
+    font-weight:300;
 }
 .nav-tabs.brs-tabs li.brs-tab.active>a
 {
     border: none;
+    color: #294294;
+    font-weight:900;
 }
 .nav-tabs.brs-tabs .brs-tab.active
 {
-    border-bottom: 3px solid #EF9C00;
+    border-bottom: 4px solid #EF9C00;
 }
 .nav-tabs.brs-tabs>brs-tab>li>a
 {
     color: blue !important;
     font-weight:900;
-}
-.nav-tabs.brs-tabs>brs-tab>li.active
-{
-    border-bottom: 3px solid #ED2E38 !important;
 }
 #logo-banner {
 	position:absolute;
@@ -144,14 +157,22 @@ li { list-style-type:none; }
 }
 #preloader
 {
-	background-position: center center;
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	background: #fff url("../images/loading.gif") no-repeat center center;
+	background-color: #fff;
 	position: absolute;
 	z-index: 999;
+}
+#preload-spinny-globe
+{
+    left:49%;
+    top:49%;
+    font-size:3em;
+    color:#EF9C00;
+    position: absolute;
+    z-index: 1000;
 }
 .bio-pic {
 	text-align:left;
