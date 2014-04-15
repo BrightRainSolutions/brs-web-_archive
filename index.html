@@ -4,18 +4,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta http-equiv="Content-Type" content= "text/html; charset=utf-8">
         <title>Bright Rain Solutions</title>
-        <link rel="icon" type="image/png" href="images/brsSuns2.png" >
+        <link rel="icon" type="image/png" href="images/brsSun.png" >
 		<link rel="stylesheet" type="text/css" href="style/brs.css">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'> 
-
-		<script type="text/javascript">
-            var djConfig = {
-                parseOnLoad: false
-            }
-        </script>
-        <script type="text/javascript" src= "http://serverapi.arcgisonline.com/jsapi/arcgis/?v=3.3"></script>
-        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-		<script type="text/javascript" src="js/brs.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.7/js/esri/css/esri.css">
+		<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'> 
+		
+		<script type="text/javascript" src="http://js.arcgis.com/3.7compact"></script>
+        <script type="text/javascript" src= "http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src= "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/brs-src.js"></script>
 		
 		<!-- Start of StatCounter Code for Default Guide -->
 		<script type="text/javascript">
@@ -31,57 +30,57 @@
 		src="http://c.statcounter.com/8130924/0/3e2f040d/1/"
 		alt="tumblr statistics"></a></div></noscript>
 		<!-- End of StatCounter Code for Default Guide -->
-
     </head>
-    <body class="nihilo">
-    	<div id="preloader"></div>
-		<div id="mapDiv">
-			<div id="logoBannerDiv"><img id="logoImg" src="images/brsLogo.png"></div>
-		</div>
-		<div dojoType="dojox.layout.FloatingPane" id="dFloatingPane" title="Bright Rain Solutions"
-			resizable="true" dockable="true" style="position:absolute;top:10px;right:10px;width:500px;height:90%;"
-			closable="false"
-			>
-    		<div id="mainWindow" dojotype="dijit.layout.BorderContainer" design="headline" gutters="false">
-			<div id="centerContainer" dojotype="dijit.layout.TabContainer" region= "center" tabstrip="true">
-				<div dojoType="dijit.layout.ContentPane" class="tabContent" title="About" selected="true">
-				<p><b>Bright Rain Solutions</b> is a Geographic Information Systems (GIS) consulting 
-				firm specializing in innovative spatial solutions providing <b>GIS web and desktop application development</b> 
-				and <b>systems integration</b> services. 
-				Clients include government agencies, non-profit organizations and private businesses.</p>
-				
-				<div>Bright Rain Solutions is a member of the <a href="http://edn.esri.com/" target="_blank">Esri Developer Network</a>.
-					
-				</div>
-				<div id="coreCompDiv">
-				<br />
-				<b>Core Technologies</b>
-				<br />
-				<span >ArcGIS Desktop&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>ArcGIS Server&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>ArcGIS JavaScript API&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>Leaflet Web Mapping API&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>Dojo&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>jQuery&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>ArcGIS Runtime&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>REST&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>SOAP&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>MS SQL Server&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>PostgreSQL\PostGIS&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>JSON&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>XML&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>C#&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>VB.Net&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>ArcView&nbsp;&nbsp;&nbsp;&nbsp;</span>
-				<span>GPS</span>
-				</div>
-				<br />
-				<div class="alignMeRight"><a href="BRS Statement of Qualifications.pdf" target="_blank">statement of qualifications (pdf)</a></div>
-				</div>
-				
-				<div dojoType="dijit.layout.ContentPane" class="tabContent" title="Clients">
-	            <!--<a href="http://www.seattle.gov"><img src="http://www.seattle.gov/2004_img/seattle_header.jpg" width="40%"></a>-->					
-					<b>City of Seattle | Seattle Department of Transportation</b><br />
+    <body>
+    	<div id="preloader"><i class="fa fa-globe fa-spin"></i></div>
+		<div id="map"></div>
+        <div id="logo-banner" class=""><img id="brs-logo" class="img-responsive" src="images/brs-logo-narrow.png"></div>
+		<div id="main" class="container">
+            <ul class="brs-tabs nav nav-tabs">
+                <li class="brs-tab active"><a href="#home" data-toggle="tab">Bright Rain</a></li>
+                <li class="brs-tab"><a href="#clients" data-toggle="tab">Clients</a></li>
+                <li class="brs-tab"><a href="#projects" data-toggle="tab">Projects</a></li>
+                <li class="brs-tab"><a href="#blog" data-toggle="tab">Blog</a></li>
+                <li class="brs-tab"><a href="#about" data-toggle="tab">About</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <p><strong class="brs-blue">Bright Rain Solutions</strong> is a Geographic Information Systems (GIS) consulting 
+                    firm specializing in innovative spatial solutions providing <b>GIS web and desktop application development</b> 
+                    and <b>systems integration</b> services. 
+                    Clients include government agencies, non-profit organizations and private businesses.</p>
+                    <div id="core-comp">
+                        <h3>Core Technologies</h3>
+                        <h4>Web</h4>
+                        <span class="core-thing">ArcGIS JavaScript API</span>
+                        <span class="core-thing">Leaflet</span>
+                        <span class="core-thing">Dojo</span>
+                        <span class="core-thing">jQuery</span>
+                        <span class="core-thing">JSON</span>
+                        <span class="core-thing">REST</span>
+                        <h4>Data</h4>
+                        <span class="core-thing">MS SQL Server</span>
+                        <span class="core-thing">PostgreSQL\PostGIS</span>
+                        <h4>Programming</h4>
+                        <span class="core-thing">Javascript</span>
+                        <span class="core-thing">C#</span>
+                        <span class="core-thing">Python</span>
+                        <h4>GIS</h4>
+                        <span class="core-thing">ArcGIS Desktop</span>
+                        <span class="core-thing">ArcGIS Server</span>
+                        <span class="core-thing">QGIS</span>
+                    </div>
+                    <br />
+                    <div>Bright Rain Solutions is a member of the 
+                        <a href="http://edn.esri.com/" target="_blank">Esri Developer Network</a>.
+                    </div>
+                    <br />
+                    <h5 class="pull-right">
+                        <a href="BRS Statement of Qualifications.pdf" target="_blank">statement of qualifications (pdf)</a>
+                    </h5>
+                </div>
+                <div class="tab-pane" id="clients">
+                    <b>City of Seattle | Seattle Department of Transportation</b><br />
 					Development of two web map applications using ArcGIS Server JavaScript API; a Construction Coordination map application designed to provide the public information about planned construction projects and events within the City, a Parking Locator map application designed to provide real-time information regarding parking options for the public within the City.
 					<br />
 					<br />
@@ -119,14 +118,13 @@
 					<b>Colorado State Parks</b><br />
 					Instrumental in completing a comprehensive survey study. Roles included: mapping visitor distribution, data collection, data analysis and reporting. The results of which led to the publication of Colorado State Park&#39;s 1998 Visitation Study Report.
 					Trail Use Distribution Study at Castlewood Canyon State Park using ArcView 3.2.
-        		</div>
-				
-				<div dojoType="dijit.layout.ContentPane" class="tabContent" title="Projects">
-		   				<div id="spm" class="projectDiv">
+                </div>
+                <div class="tab-pane" id="projects">
+                    <div id="spm" class="project-div">
 						<b>Seattle Parking Map</b>
 						<br />
 						<a dojoType="dojox.image.Lightbox" title="Seattle Parking Map" href="images/spm.png">
-		   					<img src="images/spm.png" width="200px" class="projectImages"></img>
+		   					<img src="images/spm.png" width="200px" class="project-images"></img>
 						</a>
 						The Seattle Parking Map is an interactive web map application that provides
 						 reliable parking information for the citizens and visitors to the city of Seattle.
@@ -136,11 +134,11 @@
 						<a href="http://web1.seattle.gov/sdot/seattleparkingmap/" target="_blank">see it live</a>
 						</div>
 						<br />
-						<div id="ccm" class="projectDiv">
+						<div id="ccm" class="project-div">
 						<b>Seattle Construction Coordination Map</b>
 						<br />
 						<a dojoType="dojox.image.Lightbox" title="Seattle CCM" href="images/ccm.png">
-		   					<img src="images/ccm.png" width="200px" class="projectImages"></img>
+		   					<img src="images/ccm.png" width="200px" class="project-images"></img>
 						</a>
 						The Seattle Construction Coordination Map provides current construction 
 						and event activity within the city of Seattle and was built on ArcGIS Server technology.
@@ -148,11 +146,11 @@
 						<a href="http://web1.seattle.gov/sdot/constructionmap/ccmonline.htm" target="_blank">see it live</a>
 						</div>
 						<br />
-						<div id="inspectionGIS" class="projectDiv">
+						<div id="inspectionGIS" class="project-div">
 						<b>ArcGIS Extension Development</b>
 						<br />
 						<a dojoType="dojox.image.Lightbox" title="ArcMap Extensions" href="images/ext.jpg">
-		   					<img src="images/ext.jpg" width="200px" class="projectImages"></img>
+		   					<img src="images/ext.jpg" width="200px" class="project-images"></img>
 						</a>
 						Bright Rain has developed a suite of ArcGIS extensions to integrate with 
 						<a href="http://itpipes.com/">Infrastructure Technologies</a>
@@ -162,34 +160,41 @@
 						</div>
 						<br />
 						<br />
-						<div id="floodAnalysis" class="projectDiv">
+						<div id="floodAnalysis" class="project-div">
 						<b>Seattle Flood Prone Area Analysis</b>
 						<br />
 						<a dojoType="dojox.image.Lightbox" title="Seattle Flood Prone Analysis" href="images/madisonvalleydepression.jpg">
-		   					<img src="images/madisonvalleydepression.jpg" width="200px" class="projectImages"></img>
+		   					<img src="images/madisonvalleydepression.jpg" width="200px" class="project-images"></img>
 						</a>
 						Programming and analysis was conducted for Seattle Public Utilities to identify closed contours that 
 						represent potential flood areas within the City. A custom analysis model was built using ArcObjects
 						that identified all closed contours within the city limits and analyzed them for potential flooding.
 						</div>
-						<br />					
-        		</div>
-				
-				<div dojoType="dijit.layout.ContentPane" class="tabContent" title="Blog">
-					<div id="blogBlurb">
-					If I run across something useful or have something that otherwise might be interesting
-						<span id="blogLink">
-							<a href="http://blog.brightrain.com" title="bright rain blog">I'll share it on my blog.</a>
-						</span>
-					</div>
-					<br />
-					<br />
-					<div id="brsBlogEntries">
-					Most recent entries:
+						<br />	
+                </div>
+                <div class="tab-pane" id="blog">
+                    Most recent entries:
 					<br />
 					<ul id="blogList">
-					<!--manually for now-->
 						<li>
+							<div class="blog-date">4 Apr 2014</div>
+							<a href="http://blog.brightrain.com/2014/03/13/updated-geoconverter/" 
+							title="Togglability">
+								<div class="blog-entry-pane">
+								Togglability: turning map layers on and off, with flatness
+								</div>
+							</a>
+						</li>
+                        <li>
+							<div class="blog-date">13 Mar 2014</div>
+							<a href="http://blog.brightrain.com/2014/03/13/updated-geoconverter/" 
+							title="Updated geoconverter: geojson <> arcjson">
+								<div class="blog-entry-pane">
+								Updated geoconverter: { geojson } <> { arcjson }
+								</div>
+							</a>
+						</li>
+                        <li>
 							<div class="blog-date">14 Aug 2013</div>
 							<a href="http://blog.brightrain.com/2013/08/14/geojson-arcjson/" 
 							title="Convert geojson to arcjson">
@@ -234,39 +239,27 @@
 							</a>
 						</li>
 					</ul>
-					<!--<iframe id="blogFrame" src="http://blog.brightrain.com"></iframe>-->
-					</div>
-				</div>
-
-				
-				<div dojoType="dijit.layout.ContentPane" class="tabContent" title="Bio">
-				<p class="brstext">
-				<img class="bioPicDiv" src="images/dp.jpg" height="75px">
+                </div>
+                <div class="tab-pane" id="about">
+                    <p class="brstext">
+				<img class="bio-pic" src="images/dp.jpg" height="75px">
 					Bright Rain Solutions is owned and operated by David Puckett. David has more than 15 years of GIS experience 
 				 	and holds a Bachelor of Arts degree in Sociology and Geography from Colorado State University 
 				 	and earned GIS Certification from the University of Washington.
 				</p>
 				<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/BrightRain" data-widget-id="367761780073705472">Tweets by @BrightRain</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-				</div>
+                </div>
             </div>
-            <!--RIGHT CONTAINER
-            <div dojotype="dijit.layout.ContentPane" id="rightContainer" region="right">
-                <img src=images/brslogo.gif width="100%">
-				
-				
-            </div>-->
-            <!--FOOTER SECTION-->
-            <div id="footer" dojotype="dijit.layout.ContentPane" region= "bottom">              
-			   
-			   <div id="contactInfo" class="alignMeRight">p:	206.547.0870 | m:	206.799.9701<br />
-				<a href="mailto:david@brightrain.com">david@brightrain.com</a><br />
-				<a href="https://twitter.com/BrightRain" class="twitter-follow-button" data-show-count="false">Follow @BrightRain</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				</div>
-			    	<div id="legalJunk">&#64; 2013 Bright Rain Solutions | All Rights Reserved</div>
-			</div>
-		</div>
+            <div id="footer">           
+               <div id="contactInfo" class="pull-right">p:	206.547.0870 | m:	206.799.9701<br />
+                <a href="mailto:david@brightrain.com">david@brightrain.com</a><br />
+                <a href="https://twitter.com/BrightRain"><i class="fa fa-twitter"></i></a>
+                <a href="https://github.com/brightrain"><i class="fa fa-github-alt"></i></a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                </div>
+                    <div id="legalJunk">&#64; 2014 Bright Rain Solutions | All Rights Reserved</div>
+            </div>
+        </div>
     </body>
 </html>

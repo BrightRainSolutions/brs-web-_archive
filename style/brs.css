@@ -1,87 +1,122 @@
-@import "http://serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/dojo/dojox/image/resources/Lightbox.css";
-@import "http://serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/dojo/dijit/themes/nihilo/nihilo.css";
-@import "http://serverapi.arcgisonline.com/jsapi/arcgis/3.3/js/esri/css/esri.css";
-@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dojox/layout/resources/FloatingPane.css";
-@import "http://ajax.googleapis.com/ajax/libs/dojo/1.7/dojox/layout/resources/ResizeHandle.css";
+/*
+Bright Rain Blue:
+#294294
 
+Bright Rain Orange:
+#EF9C00
+*/
 html, body {
   	width:100%;
   	height: 100%;
 	overflow:hidden;
 	margin:auto;
 }
-
 body {
 	text-align: left;
 	background-color:#777;
 	overflow:hidden;
-	font-size: 0.9em;	
+	font-size: 75%;	
 	font-family: 'Open Sans', sans-serif;
 }
-
-#logoBannerDiv {
+#map {
+	height:100%;
+	width:100%;
+	max-width:100%;
+}
+#main {
+	font-size: 1.25em;
+    box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    right: 1.5em;
+    top: 1em;
+	z-index: 99;
+	float: right;
+    width: 40%;
+    height: 95%;
+    background-color: white;
+    opacity: 0.8;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 1em;
+}
+/*This is to deal with the collision between arcgis js api and bootstrap container class
+bootstrap uses media query to set max width for a container and arcgis uses the container class for the
+injected map parts so we're just going to use wildcard to set all map parts (e.g*/
+.container[id*='map'] {
+	max-width: 100% !important;
+}
+.brs-blue
+{
+    color: #294294;
+}
+.brs-tabs.nav-tabs
+{
+    border-bottom: 1px solid #294294;
+}
+.nav-tabs.brs-tabs li.brs-tab.active>a
+{
+    border: none;
+}
+.nav-tabs.brs-tabs .brs-tab.active
+{
+    border-bottom: 3px solid #EF9C00;
+}
+.nav-tabs.brs-tabs>brs-tab>li>a
+{
+    color: blue !important;
+    font-weight:900;
+}
+.nav-tabs.brs-tabs>brs-tab>li.active
+{
+    border-bottom: 3px solid #ED2E38 !important;
+}
+#logo-banner {
 	position:absolute;
 	z-index:1;
-	top:15px;
+	top:0;
+	left: 2em;
 }
-#logoImg {
+#brs-logo {
 	max-width:100% !important;
     height:auto;
     display:block;	
 }
-
-#mapDiv {
-	margin:0px;
-	height:100%;
-	width:100%;
-}
-
-#centerContainer {
+/**/
+#center-container {
 	background-color:white;
 	margin:3px;
 	text-indent:2px;
 }
-#dFloatingPane {
-	max-width:90%;
+.core-thing {
+    border:1px solid #EF9C00;
+	border-radius: 10px;
+	padding: 0.25em;
+    width: auto;
+    cursor: default;
+    font-size: 0.8em;
 }
-#dFloatingPane .dojoxFloatingPaneTitle 
-{
-	cursor:move !important;
-}
-
-.dojoxFloatingMinimizeIcon 
-{
-	cursor:pointer !important;
-}
-
-.clientInfoCanvas
-{
-	position:absolute;
-	z-index:999;
-}
-
-.projectDiv {
+.project-div {
 	float:right;
 	text-align:left;
 }
 
-.projectImages {
+.project-images {
 	float: left; 
     margin: 4px; 
 }
 
 .blog-entry-pane {
-	border: 1px solid #CCC;
+	border: 2px solid #ccc;
 	border-radius: 10px;
-	font-size: 12px;
-	padding: 15px 15px 15px 15px !important;
+	font-size: 1em;
+	padding: 15px;
 }
 .blog-date {
 	font-size: 10px;
 }
 .blog-entry-pane:hover {
-	border: 2px solid gray;
-	background-color:#CCC;
+	border: 2px solid #EF9C00;
+	background-color:#ccc;
 }
 
  #blogLink:hover{
@@ -96,7 +131,6 @@ li { list-style-type:none; }
 	border-radius: 10px;
 	padding: 3px 5px 2px 3px;
 }
-
 #footer {
 	margin:3px;
 	background-color:white;
@@ -104,12 +138,10 @@ li { list-style-type:none; }
 	overflow:hidden;
 	padding:5px;
 }
-
 #legalJunk {
 	font-size:8pt;
 	text-align:center;	
 }
-
 #preloader
 {
 	background-position: center center;
@@ -121,21 +153,8 @@ li { list-style-type:none; }
 	position: absolute;
 	z-index: 999;
 }
-
-.tabContent {
-	background-color:whitesmoke;
-	color:#777;
-	font-size:12pt;
-	font-weight:400;
-	text-align:left;
-	margin:5px;
-}
-
-.bioPicDiv {
+.bio-pic {
 	text-align:left;
 	padding-right:20px;
 	float:left;
-}
-.alignMeRight {
-	text-align:right;
 }
