@@ -6,16 +6,18 @@
         <title>Bright Rain Solutions</title>
         <link rel="icon" type="image/png" href="images/brsSun.png" >
 		<link rel="stylesheet" type="text/css" href="style/brs.css">
-        <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.7/js/esri/css/esri.css">
+        <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.9/js/esri/css/esri.css">
 		<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'> 
 		
-		<script type="text/javascript" src="http://js.arcgis.com/3.7compact"></script>
+		<script type="text/javascript" src="http://js.arcgis.com/3.9compact"></script>
         <script type="text/javascript" src= "http://code.jquery.com/jquery-2.0.3.min.js"></script>
 		<script type="text/javascript" src= "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/brs-src.js"></script>
-		
+		<!--twitter feed-->
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+        
 		<!-- Start of StatCounter Code for Default Guide -->
 		<script type="text/javascript">
 		var sc_project=8130924; 
@@ -34,8 +36,14 @@
     <body>
     	<div id="preloader"><i id="preload-spinny-globe" class="fa fa-globe fa-spin"></i></div>
 		<div id="map"></div>
+        <div id="client-info"></div>
         <div id="logo-banner" class=""><img id="brs-logo" class="img-responsive" src="images/brs-logo-narrow.png"></div>
 		<div id="main" class="container">
+            <div id="brs-badge-container" class="row">
+                <span class="col-md-9"></span> 
+                <a href="https://twitter.com/BrightRain" target="_blank" class="brs-badge col-md-1"><i class="fa fa-twitter"></i></a>
+                <a href="https://github.com/brightrain" target="_blank" class="brs-badge col-md-1"><i class="fa fa-github-alt"></i></a>
+            </div>
             <ul class="brs-tabs nav nav-tabs">
                 <li class="brs-tab active"><a href="#home" data-toggle="tab">Bright Rain</a></li>
                 <li class="brs-tab"><a href="#clients" data-toggle="tab">Clients</a></li>
@@ -51,78 +59,96 @@
                     Clients include government agencies, non-profit organizations and private businesses.</p>
                     <div id="core-comp">
                         <h3>Core Technologies</h3>
-                        <h4>Web</h4>
+                        <div class="brs-header">Web</div>
                         <span class="core-thing">ArcGIS JavaScript API</span>
                         <span class="core-thing">Leaflet</span>
                         <span class="core-thing">Dojo</span>
                         <span class="core-thing">jQuery</span>
                         <span class="core-thing">JSON</span>
                         <span class="core-thing">REST</span>
-                        <h4>Data</h4>
+                        <div class="brs-header">Data</div>
                         <span class="core-thing">MS SQL Server</span>
                         <span class="core-thing">PostgreSQL\PostGIS</span>
-                        <h4>Programming</h4>
+                        <div class="brs-header">Programming</div>
                         <span class="core-thing">Javascript</span>
                         <span class="core-thing">C#</span>
                         <span class="core-thing">Python</span>
-                        <h4>GIS</h4>
+                        <div class="brs-header">GIS</div>
                         <span class="core-thing">ArcGIS Desktop</span>
                         <span class="core-thing">ArcGIS Server</span>
                         <span class="core-thing">QGIS</span>
+                        <span class="core-thing">TileMill</span>
                     </div>
                     <br />
                     <div>Bright Rain Solutions is a member of the 
-                        <a href="http://edn.esri.com/" target="_blank">Esri Developer Network</a>.
+                        <a href="http://edn.esri.com/" target="_blank">Esri Developer Network</a>
                     </div>
-                    <br />
-                    <h5 class="pull-right">
-                        <a href="BRS Statement of Qualifications.pdf" target="_blank">statement of qualifications (pdf)</a>
-                    </h5>
+                    <h4>
+                        <a href="BRS Statement of Qualifications.pdf" target="_blank"  class="pull-right">
+                            <i class="fa fa-file-text"></i> Statement of Qualifications</a>
+                    </h4>
                 </div>
                 <div class="tab-pane" id="clients">
-                    <b>City of Seattle | Seattle Department of Transportation</b><br />
-					Development of two web map applications using ArcGIS Server JavaScript API; a Construction Coordination map application designed to provide the public information about planned construction projects and events within the City, a Parking Locator map application designed to provide real-time information regarding parking options for the public within the City.
-					<br />
-					<br />
-					<b>City of Seattle | Seattle Public Utilities</b><br />
-					Development of a custom set of .Net tools to identify potential flood polygons within the City of Seattle based on closed contours.
-					Enhancements to existing, custom GIS data editors using Visual Basic.
-					Development of custom functions to convert cadastral data previously maintained as ArcInfo coverages to true curves offered in the new ArcSDE geodatabase.
-					<br />
-					<br />
-					<b>Antares Group, Landover, MD</b><br />
-					Map interface development of a web based contract management tool that facilitates the management of contractual obligations between crop producers
-					and biomass processors. The front end technology uses the <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet mapping JavaScript library</a>
-					to present the user with an aerial base map along with a tile layer created with <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and hosted with 
-					<a href="http://mapbox.com" target="_blank">MapBox</a> that shows critical areas and labels. 
-					The user can interact with fields, storage and access locations managed as vector graphics as well as enter and search associated tabular data. 
-					The interface interacts with a backend api exposed via the <a href="http://www.asp.net/mvc" target="_blank">ASP.Net MVC framework</a>.
-					<br />
-					<br />
-					<b>PACE Engineers, Seattle, WA</b><br />
-					Implemented GIS at several water and sewer utility districts including the development of custom applications in support of asset inventory with GPS, development of asset management systems using ESRI software, integration between legacy database systems and GIS, and creation of network models. Implementation of GIS based maintenance management systems.
-					<br />
-					<br />
-					<b>Infrastructure Technologies, Albuquerque, NM</b><br />
-					Development of several commercial ArcMap extension products that extend IT pipe inspection software to integrate fully with GIS. These products are being developed using Visual Basic.Net.
-					<br />
-					<br />
-					<b>Your Castle Real Estate Services, Denver, CO</b><br />
-					Development of a web based real estate tool that consumes the Microsoft MapPoint Web Service and calculates an estimated value along with selected statistics. This web application was developed using ASP.Net and Visual Basic.Net.
-					<br />
-					<br />
-					<b>US Forest Service | Mt. Baker / Snoqualmie National Forest, WA</b><br />
-					Assessed dispersed recreation impact on fish populations in riparian areas. Geographic analysis included identifying high impact sites and high impact area using raster analysis. Analysis conducted with ArcGIS 8.3, Excel, and Visual Basic for Applications (VBA).
-					<br />
-					<br />
-					<b>Colorado State Parks</b><br />
-					Instrumental in completing a comprehensive survey study. Roles included: mapping visitor distribution, data collection, data analysis and reporting. The results of which led to the publication of Colorado State Park&#39;s 1998 Visitation Study Report.
-					Trail Use Distribution Study at Castlewood Canyon State Park using ArcView 3.2.
+                    <p>
+                        <div class="brs-header">Environmental Protection Agency (EPA)</div>
+                        Bright Rain provides development and consultation services to the EPA in support of mapping the results of the 
+                        <a href="http://water.epa.gov/scitech/datait/databases/cwns/index.cfm" target="_blank">Clean Watersheeds Needs Survey (CWNS)</a>. Services include the development of a custom web mapping application in conjunction with an application developed and hosted within the EPA GeoPlatform.
+                        <div class="brs-subtle">This work is being conducted as a sub-contractor to 
+                            <a href="http://indrasoft.com/" target="_blank">IndraSoft</a>
+                        </div>
+                    </p>
+                    <p>
+                        <div class="brs-header">City of Seattle | Seattle Department of Transportation</div>
+                        Development of two web map applications using ArcGIS Server JavaScript API; a Construction Coordination map application designed to provide the public information about planned construction projects and events within the City, a Parking Locator map application designed to provide real-time information regarding parking options for the public within the City.
+                    </p>
+                    <p>
+                        <div class="brs-header">City of Seattle | Seattle Public Utilities</div>
+                        Development of a custom set of .Net tools to identify potential flood polygons within the City of Seattle based on closed contours.
+                        Enhancements to existing, custom GIS data editors using Visual Basic.
+                        Development of custom functions to convert cadastral data previously maintained as ArcInfo coverages to true curves offered in the new ArcSDE geodatabase.
+					</p>
+                    <p>
+                        <div class="brs-header">Antares Group, Landover, MD</div>
+                        Map interface development of a web based contract management tool that facilitates the management of contractual obligations between crop producers
+                        and biomass processors. The front end technology uses the <a href="http://leaflet.cloudmade.com/" target="_blank">Leaflet mapping JavaScript library</a>
+                        to present the user with an aerial base map along with a tile layer created with <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and hosted with 
+                        <a href="http://mapbox.com" target="_blank">MapBox</a> that shows critical areas and labels. 
+                        The user can interact with fields, storage and access locations managed as vector graphics as well as enter and search associated tabular data. 
+                        The interface interacts with a backend api exposed via the <a href="http://www.asp.net/mvc" target="_blank">ASP.Net MVC framework</a>.
+					</p>
+                    <p>
+                        <div class="brs-header">PACE Engineers, Seattle, WA</div>
+                        Implemented GIS at several water and sewer utility districts including the development of custom applications in support of asset inventory with GPS, development of asset management systems using ESRI software, integration between legacy database systems and GIS, and creation of network models. Implementation of GIS based maintenance management systems.
+					</p>
+                    <p>
+                        <div class="brs-header">Infrastructure Technologies, Albuquerque, NM</div>
+                        Development of several commercial ArcMap extension products that extend IT pipe inspection software to integrate fully with GIS. These products are being developed using Visual Basic.Net.
+					</p>
+                    <p>
+                        <div class="brs-header">Your Castle Real Estate Services, Denver, CO</div>
+                        Development of desktop and web based real estate tools that support the company goal of offering innovative solutions to member agents.
+					</p>
+                    <p>
+					<div class="brs-header">US Forest Service | Mt. Baker / Snoqualmie National Forest, WA</div>
+					Assessed dispersed recreation impact on fish populations in riparian areas. Geographic analysis included identifying high impact sites and high impact area using raster analysis. Analysis conducted with ArcGIS 8.3, Excel, and Visual Basic for Applications (VBA). 
+					</p>
+                    <p>
+                        <div class="brs-header">Colorado State Parks</div>
+                        Instrumental in completing a comprehensive survey study. Roles included: mapping visitor distribution, data collection, data analysis and reporting. The results of which led to the publication of Colorado State Park&#39;s 1998 Visitation Study Report.
+                        Trail Use Distribution Study at Castlewood Canyon State Park using ArcView 3.2.
+                    </p>
                 </div>
                 <div class="tab-pane" id="projects">
-                    <div id="spm" class="project-div">
-						<b>Seattle Parking Map</b>
-						<br />
+                    <div id="epa" class="project-container">
+						<div class="brs-header">EPA CWNS Mapper</div>
+						<div class="brs-content">The EPA CWNS Mapper is a web map application that displays need amounts for every wastewater facility in the US as well as aggregated needs amounts at the state, county and congressional district level. The application is being developed using the <a href="https://github.com/Esri/esri-leaflet" target="_blank">esri-leaflet map library</a>.</div>
+						<!--
+                        <br />
+						<a href="http://" target="_blank">see it live</a>
+                        -->
+				    </div>
+                    <div id="spm" class="project-container">
+						<div class="brs-header">Seattle Parking Map</div>
 						<a dojoType="dojox.image.Lightbox" title="Seattle Parking Map" href="images/spm.png">
 		   					<img src="images/spm.png" width="200px" class="project-images"></img>
 						</a>
@@ -132,22 +158,20 @@
 						through a REST interface.
 						<br />
 						<a href="http://web1.seattle.gov/sdot/seattleparkingmap/" target="_blank">see it live</a>
-						</div>
-						<br />
-						<div id="ccm" class="project-div">
-						<b>Seattle Construction Coordination Map</b>
-						<br />
-						<a dojoType="dojox.image.Lightbox" title="Seattle CCM" href="images/ccm.png">
-		   					<img src="images/ccm.png" width="200px" class="project-images"></img>
+				    </div>
+                    <br />
+                    <div id="ccm" class="project-container">
+						<div class="brs-header">ERD M+E</div>
+						<a dojoType="dojox.image.Lightbox" title="erd m+e" href="images/erdme.png">
+		   					<img src="images/erdme.png" width="200px" class="project-images"></img>
 						</a>
-						The Seattle Construction Coordination Map provides current construction 
-						and event activity within the city of Seattle and was built on ArcGIS Server technology.
-						<br />
-						<a href="http://web1.seattle.gov/sdot/constructionmap/ccmonline.htm" target="_blank">see it live</a>
-						</div>
-						<br />
-						<div id="inspectionGIS" class="project-div">
-						<b>ArcGIS Extension Development</b>
+						The Episcopal Relief & Development Monitoring and Evaluation Program Management System is a web based
+                        map application that supports aid programs from project budgeting to monitoring the progress of program efforts
+                        through final evaluation of the effectiveness of program and project activities.
+				    </div>
+                    <br />
+                    <div id="inspectionGIS" class="project-container">
+						<div class="brs-header">ArcGIS Extension Development</div>
 						<br />
 						<a dojoType="dojox.image.Lightbox" title="ArcMap Extensions" href="images/ext.jpg">
 		   					<img src="images/ext.jpg" width="200px" class="project-images"></img>
@@ -157,22 +181,21 @@
 						signature pipe inspection product, inspectIT. These modules send asset data between the inspection
 						software and the enterprise GIS minimizing redundant storage and data entry time. The modules also
 						provide an effective means to disseminate inspection video and data.
-						</div>
-						<br />
-						<br />
-						<div id="floodAnalysis" class="project-div">
-						<b>Seattle Flood Prone Area Analysis</b>
-						<br />
+                    </div>
+                    <br />
+				    <div id="floodAnalysis" class="project-container">
+						<div class="brs-header">Seattle Flood Prone Area Analysis</div>
 						<a dojoType="dojox.image.Lightbox" title="Seattle Flood Prone Analysis" href="images/madisonvalleydepression.jpg">
 		   					<img src="images/madisonvalleydepression.jpg" width="200px" class="project-images"></img>
 						</a>
 						Programming and analysis was conducted for Seattle Public Utilities to identify closed contours that 
 						represent potential flood areas within the City. A custom analysis model was built using ArcObjects
 						that identified all closed contours within the city limits and analyzed them for potential flooding.
-						</div>
-						<br />	
+                    </div>
+                    <br />	
                 </div>
                 <div class="tab-pane" id="blog">
+                    <h3><a href="http://blog.brightrain.com/">blog.brightrain.com</a></h3>
                     Most recent entries:
 					<br />
 					<ul id="blogList">
@@ -242,23 +265,20 @@
                 </div>
                 <div class="tab-pane" id="about">
                     <p class="brstext">
-				<img class="bio-pic" src="images/dp.jpg" height="75px">
-					Bright Rain Solutions is owned and operated by David Puckett. David has more than 15 years of GIS experience 
-				 	and holds a Bachelor of Arts degree in Sociology and Geography from Colorado State University 
-				 	and earned GIS Certification from the University of Washington.
-				</p>
+                        <img class="bio-pic" src="images/dp.jpg" height="75px">
+                        Bright Rain Solutions is owned and operated by David Puckett. David has more than 15 years of GIS experience 
+                        and holds a Bachelor of Arts degree in Sociology and Geography from Colorado State University 
+                        and earned GIS Certification from the University of Washington.
+				    </p>
 				<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/BrightRain" data-widget-id="367761780073705472">Tweets by @BrightRain</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                 </div>
             </div>
-            <div id="footer">           
-               <div id="contactInfo" class="pull-right">p:	206.547.0870 | m:	206.799.9701<br />
-                <a href="mailto:david@brightrain.com">david@brightrain.com</a><br />
-                <a href="https://twitter.com/BrightRain"><i class="fa fa-twitter"></i></a>
-                <a href="https://github.com/brightrain"><i class="fa fa-github-alt"></i></a>
-                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            <div id="brs-footer">           
+               <div id="contactInfo">
+                   <span>p:	206.547.0870 | m:	206.799.9701 | </span>
+                    <a href="mailto:david@brightrain.com">david@brightrain.com</a>
                 </div>
-                    <div id="legalJunk">&#64; 2014 Bright Rain Solutions | All Rights Reserved</div>
+                <div id="legal-junk">&#64; 2014 Bright Rain Solutions | All Rights Reserved</div>
             </div>
         </div>
     </body>

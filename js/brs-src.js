@@ -1,5 +1,8 @@
 dojo.require("esri.map");
 dojo.require("esri.layers.WebTiledLayer");
+dojo.require("esri.symbols.PictureMarkerSymbol");
+dojo.require("esri.renderers.SimpleRenderer");
+dojo.require("esri.graphic");
 dojo.addOnLoad(fireup);
 function fireup() {
     //setup our app ui when the doc is ready
@@ -21,7 +24,7 @@ var brs = {
 		{
 			this.map = new esri.Map("map", {
 					basemap: "gray",
-					center: [-90, 35],
+					center: [-70, 42],
 					zoom: 4,
 					slider: false,
 					//sliderStyle: "small",
@@ -31,14 +34,13 @@ var brs = {
 				});
 			dojo.connect(brs.map, "onLoad", function () {
 				brs.map.spatialReference = new esri.SpatialReference({ wkid: 102100 });
-				//Some of the api stuff might be outdated in the new 3.7
-				//this.initFunctionality();
+				//Some of the api stuff might be outdated in the new 3.9
+				brs.initFunctionality();
 			});
             $('.brs-tabs a').click(function (e) {
               e.preventDefault();
               $(this).tab('show');
             })
-
 			//Hide the div that we display while loading the page.
 			$("#preloader").hide();
 			return true;
@@ -51,25 +53,25 @@ var brs = {
 	initFunctionality: function() {
 		try
 		{
-		/*
-		this.symbolClient = new esri.symbol.PictureMarkerSymbol('images/brsSuns2.png', 20, 20);
-		this.graphicsLayerClients = new esri.layers.GraphicsLayer();
-		var rendererClients = new esri.renderer.SimpleRenderer(symbolClient);
-		this.graphicsLayerClients.setRenderer(rendererClients);
-		this.map.addLayer(graphicsLayerClients);
+		/**/
+		brs.symbolClient = new esri.symbol.PictureMarkerSymbol('images/brsSuns2.png', 20, 20);
+		brs.graphicsLayerClients = new esri.layers.GraphicsLayer();
+		var rendererClients = new esri.renderer.SimpleRenderer(brs.symbolClient);
+		brs.graphicsLayerClients.setRenderer(rendererClients);
+		brs.map.addLayer(brs.graphicsLayerClients);
 		
-		this.addClientGraphics();
+		brs.addClientGraphics();
 		
-		symbolHighlightClient = new esri.symbol.PictureMarkerSymbol('images/brsSuns1.png', 40, 40);
-		graphicsLayerHighlightClients = new esri.layers.GraphicsLayer();
-		var rendererHighlightClients = new esri.renderer.SimpleRenderer(symbolHighlightClient);
-		graphicsLayerHighlightClients.setRenderer(rendererHighlightClients);
-		this.map.addLayer(this.graphicsLayerHighlightClients);
+		brs.symbolHighlightClient = new esri.symbol.PictureMarkerSymbol('images/brsSuns1.png', 40, 40);
+		brs.graphicsLayerHighlightClients = new esri.layers.GraphicsLayer();
+		var rendererHighlightClients = new esri.renderer.SimpleRenderer(brs.symbolHighlightClient);
+		brs.graphicsLayerHighlightClients.setRenderer(rendererHighlightClients);
+		brs.map.addLayer(brs.graphicsLayerHighlightClients);
 		
-		dojo.connect(this.graphicsLayerClients, "onMouseOver", this.clientGraphicHover);
-		dojo.connect(this.graphicsLayerClients, "onMouseOut", this.clientGraphicMouseOut);
-		dojo.connect(this.graphicsLayerClients, "onClick", this.clientGraphicClick);
-		*/
+		dojo.connect(brs.graphicsLayerClients, "onMouseOver", brs.clientGraphicHover);
+		dojo.connect(brs.graphicsLayerClients, "onMouseOut", brs.clientGraphicMouseOut);
+		dojo.connect(brs.graphicsLayerClients, "onClick", brs.clientGraphicClick);
+		
 		return true;
 		}
 		catch(e)
@@ -78,69 +80,65 @@ var brs = {
 		}
 	},
 	addClientGraphics: function() {
-		var ptDenver = new esri.geometry.Point(-80, 40, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptDenver));
-		/*
-		var ptDenver = new esri.geometry.Point(-11686902, 4827811, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptDenver));
-		
-		var ptSeattle = new esri.geometry.Point(-13617706, 6041407, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptSeattle));
-		
-		//landover, md
-		var ptLandover = new esri.geometry.Point(-8557000, 4714355, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptLandover));
-		
-		//albuquerque
-		var ptAlbuquerque = new esri.geometry.Point(-11868451, 4182705, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptAlbuquerque));
-		
-		//chicago
-		var ptChicago = new esri.geometry.Point(-9806868, 5114585, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptChicago));
-		
-		//kirkland, wa
-		var ptKland = new esri.geometry.Point(-13600524, 6053733, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptKland));
-			
-		//sedro-woolley, wa
-		var ptSedro = new esri.geometry.Point(-13607520, 6191540, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptSedro));
-			
-		//broomfield, co
-		var ptBfield = new esri.geometry.Point(-11695506, 4859445, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptBfield));
-		
-		//vienna, va
-		var ptDC = new esri.geometry.Point(-8597952, 4710785, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptDC));
-			
-		//nyc
-		var ptNYC = new esri.geometry.Point(-8216918, 4968370, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptNYC));
-		
-		//boggess wallingford
-		var ptWally = new esri.geometry.Point(-13618133, 6050694, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptWally));
-		
-		//graphical data gig harbor
-		var ptGigHarbor = new esri.geometry.Point(-13645653, 5996026, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptGigHarbor));
-		
-		//mt baker snoq national forest
-		var ptMtBakerSnoqNF = new esri.geometry.Point(-13515483, 6009965, map.spatialReference)
-		this.graphicsLayerClients.add(new esri.Graphic(ptMtBakerSnoqNF));
-		*/
+		var ptEPA = new esri.geometry.Point(-8575141.8743, 4706234.52, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptEPA, null, {"Name":"Environmental Protection Agency (EPA)"}));
+
+        var ptERD = new esri.geometry.Point(-8234492.59, 4975607.6621, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptERD, null, {"Name":"Episcopal Relief & Development"}));
+
+        var ptDenver = new esri.geometry.Point(-11686902, 4827811, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptDenver, null, {"Name":"Your Castle Real Estate"}));
+
+        var ptSeattle = new esri.geometry.Point(-13617706, 6041407, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptSeattle, null, {"Name":"City of Seattle"}));
+
+        //landover, md
+        var ptLandover = new esri.geometry.Point(-8557000, 4714355, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptLandover, null, {"Name":"Antares Group"}));
+
+        //albuquerque
+        var ptAlbuquerque = new esri.geometry.Point(-11868451, 4182705, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptAlbuquerque, null, {"Name":"Infrastructure Technologies"}));
+
+        //chicago
+        var ptChicago = new esri.geometry.Point(-9806868, 5114585, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptChicago, null, {"Name":"GAD Group"}));
+
+        //kirkland, wa
+        var ptKland = new esri.geometry.Point(-13600524, 6053733, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptKland, null, {"Name":"PACE Engineers"}));
+
+        //sedro-woolley, wa
+        var ptSedro = new esri.geometry.Point(-13607520, 6191540, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptSedro, null, {"Name":"City of Sedro-Woolley, WA"}));
+
+        //broomfield, co
+        var ptBfield = new esri.geometry.Point(-11695506, 4859445, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptBfield, null, {"Name":"Your Castle Real Estate"}));
+
+        //nyc
+        var ptNYC = new esri.geometry.Point(-8216918, 4968370, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptNYC, null, {"Name":"New York City Dept of Corrections"}));
+
+        //graphical data gig harbor
+        var ptGigHarbor = new esri.geometry.Point(-13645653, 5996026, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptGigHarbor, null, {"Name":"Graphical Data"}));
+
+        //mt baker snoq national forest
+        var ptMtBakerSnoqNF = new esri.geometry.Point(-13515483, 6009965, brs.map.spatialReference)
+        brs.graphicsLayerClients.add(new esri.Graphic(ptMtBakerSnoqNF, null, {"Name":"Mt Baker \ Snoqualmie National Forest"}));
 	},
 	clientGraphicHover: function(evt) {
 		//We could add text or image here to indicate the name as well.
-		graphicsLayerHighlightClients.add(evt.graphic);
-		map.setMapCursor("pointer");
+		brs.graphicsLayerHighlightClients.add(evt.graphic);
+		brs.map.setMapCursor("pointer");
+        dojo.byId("client-info").innerHTML = evt.graphic.attributes.Name;
 	},
 	clientGraphicMouseOut: function(evt) {
-		map.setMapCursor("default");
-		graphicsLayerHighlightClients.clear();
-		graphicsLayerClients.add(new esri.Graphic(evt.graphic));
+		brs.map.setMapCursor("default");
+		brs.graphicsLayerHighlightClients.clear();
+		brs.graphicsLayerClients.add(evt.graphic);
+        dojo.byId("client-info").innerHTML = "";
 	},
 	clientGraphicClick: function(evt){
 		var clientGraphic = evt.graphic;
