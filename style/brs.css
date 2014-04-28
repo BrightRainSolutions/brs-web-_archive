@@ -57,12 +57,29 @@ a:hover {
 	z-index: 3;
 }
 #brs-footer {
-    height:10%;
+    height:auto;
 	background-color:white;
 	overflow:hidden;
-	padding:0.2em;
     text-align:center;
     border-top: 1px dotted #294294;
+}
+#brs-tab-content a {
+    color:#294294; 
+}
+#brs-tab-content a:hover {
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+.brs-badge {
+    font-size:1.3em;
+    color:#294294; 
+}
+.brs-badge:hover {
+    color:#EF9C00;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+.brs-lightbox:hover
+{
+    cursor:pointer;
 }
 /*This is to deal with the collision between arcgis js api and bootstrap container class
 bootstrap uses media query to set max width for a container and arcgis uses the container class for the
@@ -78,9 +95,10 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
     font-style:italic;
     font-size:0.8em;
 }
-.brs-blue
+.brs-strong
 {
-    color: #294294;
+    font-size:1.1em;
+    font-weight:700;
 }
 .brs-tabs.nav-tabs
 {
@@ -96,7 +114,7 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
 {
     color: #294294;
     background-color:transparent;
-    font-weight:300;
+    font-weight:600;
 }
 .nav-tabs.brs-tabs li.brs-tab.active>a
 {
@@ -124,23 +142,17 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
     height:auto;
     display:block;	
 }
-.brs-badge
-{
-    font-size:1.2em;
-}
-/**/
 #center-container {
 	background-color:white;
 	margin:3px;
 	text-indent:2px;
 }
 .core-thing {
-    border:1px solid #EF9C00;
-	border-radius: 10px;
-	padding: 0.25em;
+	padding: 0.5em;
     width: auto;
     cursor: default;
     font-size: 0.8em;
+    color:#EF9C00;
 }
 .project-container {
 	float:right;
