@@ -43,7 +43,7 @@ a:hover {
     padding: 1em;
 }
 #brs-tab-content {
-    height:80%;
+    height:75%;
     overflow-y:scroll;
 }
 #client-info
@@ -76,10 +76,6 @@ a:hover {
 .brs-badge:hover {
     color:#EF9C00;
     text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
-}
-.brs-lightbox:hover
-{
-    cursor:pointer;
 }
 /*This is to deal with the collision between arcgis js api and bootstrap container class
 bootstrap uses media query to set max width for a container and arcgis uses the container class for the
@@ -132,10 +128,7 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
     font-weight:900;
 }
 #logo-banner {
-	position:absolute;
-	z-index:1;
-	top:0.5em;
-	left: 2em;
+
 }
 #brs-logo {
 	max-width:100% !important;
@@ -148,11 +141,15 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
 	text-indent:2px;
 }
 .core-thing {
-	padding: 0.5em;
     width: auto;
     cursor: default;
-    font-size: 0.8em;
-    color:#EF9C00;
+    font-size: 0.7em;
+}
+.brs-divider
+{
+    font-size:1.2em;
+    font-weight:900;
+    padding: 0.3em;
 }
 .project-container {
 	float:right;
@@ -176,6 +173,10 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
 .blog-entry-pane:hover {
 	border: 2px solid #EF9C00;
 	background-color:#ccc;
+}
+div.modal-dialog
+{
+    width:auto;
 }
 li { list-style-type:none; }
 #legal-junk {

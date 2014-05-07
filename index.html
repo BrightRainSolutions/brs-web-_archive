@@ -9,12 +9,15 @@
         <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.9/js/esri/css/esri.css">
 		<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'> 
+		<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'>
+        <link rel="stylesheet" href="style/slimbox/slimbox2.css" type="text/css" media="screen" />
 		
 		<script type="text/javascript" src="http://js.arcgis.com/3.9compact"></script>
         <script type="text/javascript" src= "http://code.jquery.com/jquery-2.0.3.min.js"></script>
 		<script type="text/javascript" src= "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/brs-src.js"></script>
+        <!--http://www.digitalia.be/software/slimbox2-->
+        <script type="text/javascript" src="js/slimbox2.js"></script>
         <script type="text/javascript" src="js/brs-clients.geojson"></script>
 		<!--twitter feed-->
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -38,10 +41,13 @@
     	<div id="preloader"><i id="preload-spinny-globe" class="fa fa-globe fa-spin"></i></div>
 		<div id="map"></div>
         <div id="client-info"></div>
-        <div id="logo-banner" class=""><img id="brs-logo" class="img-responsive" src="images/brs-logo-narrow.png"></div>
+        
 		<div id="main" class="container">
+            
             <div id="brs-badge-container" class="row">
-                <span class="col-md-8"></span> 
+                <span class="col-md-8">
+                    <div id="logo-banner" class=""><img id="brs-logo" class="img-responsive" src="images/brs-logo-narrow.png"></div>
+                </span> 
                 <a href="https://twitter.com/BrightRain" target="_blank" class="brs-badge col-md-1"><i class="fa fa-twitter"></i></a>
                 <a href="https://github.com/brightrain" target="_blank" class="brs-badge col-md-1"><i class="fa fa-github-alt"></i></a>
                 <a href="https://www.linkedin.com/pub/david-puckett/0/425/1a2/" target="_blank" class="brs-badge col-md-1">
@@ -65,25 +71,35 @@
                     </p>
                     <div id="core-comp">
                         <strong>Core Technologies</strong>
-                        <div class="brs-header"><i class="fa fa-dot-circle-o"></i> Web</div>
-                        <span class="core-thing">ArcGIS JavaScript API</span>
-                        <span class="core-thing">Leaflet</span>
-                        <span class="core-thing">Dojo</span>
-                        <span class="core-thing">jQuery</span>
-                        <span class="core-thing">JSON</span>
-                        <span class="core-thing">REST</span>
-                        <div class="brs-header">Data</div>
-                        <span class="core-thing">MS SQL Server</span>
-                        <span class="core-thing">PostgreSQL\PostGIS</span>
-                        <div class="brs-header">Coding</div>
-                        <span class="core-thing">Javascript</span>
-                        <span class="core-thing">C#</span>
-                        <span class="core-thing">Python</span>
-                        <div class="brs-header">GIS</div>
-                        <span class="core-thing">ArcGIS Desktop</span>
-                        <span class="core-thing">ArcGIS Server</span>
-                        <span class="core-thing">QGIS</span>
-                        <span class="core-thing">TileMill</span>
+                        <p>
+                            <div class="brs-header"><i class="fa fa-link fa-fw"></i>Web</div>
+                            <span class="core-thing">HTML 5</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>CSS</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>ArcGIS JS API</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>Leaflet</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>Dojo</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>jQuery</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>JSON</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>REST</span>
+                        </p>
+                        <p>            
+                            <div class="brs-header"><i class="fa fa-code fa-fw"></i>Coding</div>
+                            <span class="core-thing">Javascript</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>C#</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>Python</span>
+                        </p>
+                        <p>
+                            <div class="brs-header"><i class="fa fa-globe fa-fw"></i>GIS</div>
+                            <span class="core-thing">ArcGIS Desktop</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>ArcGIS Server</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>QGIS</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>TileMill</span>
+                        </p>
+                        <p>
+                            <div class="brs-header"><i class="fa fa-table fa-fw"></i>Data</div>
+                            <span class="core-thing">MS SQL Server</span>
+                            <span class="core-thing"><span class="brs-divider">|</span>PostgreSQL\PostGIS</span>
+                        </p>
                     </div>
                     <br />
                 </div>
@@ -148,41 +164,38 @@
 				    </p>
                     <p id="spm" class="">
 						<div class="brs-header">Seattle Parking Map</div>
-		   			    <img src="images/spm.png" width="200px" title="Seattle Parking Map" data-toggle="modal" data-target="#spm-image-modal" class="brs-lightbox project-images pull-right"></img>
-						The Seattle Parking Map is an interactive web map application that provides
+		   			    <a href="images/spm.png" rel="lightbox" title="Seattle Parking Map">
+                            <img src="images/spm.png" width="200px" title="Seattle Parking Map" class="project-images" />
+                        </a>
+						The <a href="http://web1.seattle.gov/sdot/seattleparkingmap/" target="_blank">Seattle Parking Map</a> is an interactive web map application that provides
 						 reliable parking information for the citizens and visitors to the city of Seattle.
   						It was developed using the ArcGIS JavaScript API that consumes ArcGIS Server map services 
 						through a REST interface.
-						<br />
-						<a href="http://web1.seattle.gov/sdot/seattleparkingmap/" target="_blank">see it live</a>
 				    </p>
-                    <br />
                     <p id="erd">
 						<div class="brs-header">ERD M+E</div>
-						<a title="erd m+e" href="images/erdme.png">
-		   					<img src="images/erdme.png" width="200px" class="project-images"></img>
-						</a>
+                        <a href="images/erdme.png" rel="lightbox" title="ERD Monitoring + Evaluation">
+                            <img src="images/erdme.png" width="200px" title="ERD Monitoring + Evaluation" class="project-images pull-right" />
+                        </a>		   			    
 						The Episcopal Relief & Development Monitoring and Evaluation Program Management System is a web based
                         map application that supports aid programs from project budgeting to monitoring the progress of program efforts
                         through final evaluation of the effectiveness of program and project activities.
 				    </p>
-                    <br />
                     <p id="inspectionGIS" class="">
 						<div class="brs-header">ArcGIS Extension Development</div>
 						<br />
-						<a title="ArcMap Extensions" href="images/ext.jpg">
+						<a rel="lightbox" title="ArcMap Extensions" href="images/ext.jpg">
 		   					<img src="images/ext.jpg" width="200px" class="project-images"></img>
 						</a>
 						Bright Rain has developed a suite of ArcGIS extensions to integrate with 
-						<a href="http://itpipes.com/">Infrastructure Technologies</a>
+						<a href="http://itpipes.com/" target="_blank">Infrastructure Technologies</a>
 						signature pipe inspection product, inspectIT. These modules send asset data between the inspection
 						software and the enterprise GIS minimizing redundant storage and data entry time. The modules also
 						provide an effective means to disseminate inspection video and data.
                     </p>
-                    <br />
-				    <p id="floodAnalysis" class="project-container">
+                    <p id="floodAnalysis" class="project-container">
 						<div class="brs-header">Seattle Flood Prone Area Analysis</div>
-						<a title="Seattle Flood Prone Analysis" href="images/madisonvalleydepression.jpg">
+						<a rel="lightbox" title="Seattle Flood Prone Analysis" href="images/madisonvalleydepression.jpg">
 		   					<img src="images/madisonvalleydepression.jpg" width="200px" class="project-images pull-right"></img>
 						</a>
 						Programming and analysis was conducted for Seattle Public Utilities to identify closed contours that 
@@ -285,13 +298,6 @@
                 </div>
                 <div id="legal-junk">&#64; 2014 Bright Rain Solutions | All Rights Reserved</div>
             </div>
-        </div>
-        <div id="spm-image-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <img src="images/spm.png" class=""></img>
-            </div>
-          </div>
         </div>
     </body>
 </html>
