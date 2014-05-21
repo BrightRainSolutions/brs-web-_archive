@@ -30,16 +30,14 @@ a:hover {
 	font-size: 1.2em;
     box-shadow: 0px 3px 14px rgba(0, 0, 0, 0.4);
     position: absolute;
-    right: 1.5em;
-    top: 1em;
+    right: 0;
+    top: 0;
 	z-index: 2;
 	float: right;
-    width: 40%;
-    height: 95%;
+    width: 45%;
+    height: 100%;
     background-color: white;
     opacity: 0.8;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
     padding: 1em;
 }
 @media all and (max-width: 1200px) {
@@ -109,6 +107,7 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
 .brs-tabs.nav-tabs
 {
     border-bottom: 2px solid #294294;
+    font-weight:900;
 }
 .nav-tabs.brs-tabs li.brs-tab>a
 {
@@ -120,13 +119,11 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
 {
     color: #294294;
     background-color:transparent;
-    font-weight:600;
 }
 .nav-tabs.brs-tabs li.brs-tab.active>a
 {
     border: none;
     color: #294294;
-    font-weight:900;
 }
 .nav-tabs.brs-tabs .brs-tab.active
 {
@@ -136,9 +133,6 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
 {
     color: blue !important;
     font-weight:900;
-}
-#logo-banner {
-
 }
 #brs-logo {
 	max-width:100% !important;
