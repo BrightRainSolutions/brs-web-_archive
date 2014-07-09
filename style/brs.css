@@ -157,16 +157,13 @@ injected map parts so we're just going to use wildcard to set all map parts (e.g
     font-weight:900;
     padding: 0.3em;
 }
-.project-container {
-	float:right;
-	text-align:left;
+.brs-clear {
+    clear:both;
 }
-
 .project-images {
 	float: left; 
     margin: 4px; 
 }
-
 .blog-entry-pane {
 	border: 2px solid #ccc;
 	border-radius: 10px;
