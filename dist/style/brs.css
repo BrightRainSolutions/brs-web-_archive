@@ -1,0 +1,221 @@
+/*
+Bright Rain Blue:
+#294294
+
+Bright Rain Orange:
+#EF9C00
+*/
+html, body {
+  	width:100%;
+  	height: 100%;
+	overflow:hidden;
+	margin:auto;
+}
+body {
+	text-align: left;
+	background-color:#777;
+	overflow:hidden;
+	font-size: 75%;	
+	font-family: 'Open Sans', sans-serif;
+}
+a:hover {
+ text-decoration:none !important;
+}
+#map {
+	height:100%;
+	width:100%;
+	max-width:100%;
+}
+#main {
+	font-size: 1.2em;
+    position: absolute;
+    right: 0;
+    top: 0;
+	z-index: 2;
+	float: right;
+    width: 45%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.8;
+    padding: 1em;
+}
+@media all and (max-width: 1200px) {
+    #main {
+        width:100%;
+        height:100%;
+        padding:0 0 0 2%;
+    }
+    #brs-tab-content {
+
+    }
+}
+#brs-tab-content {
+    height:75%;
+    overflow-y:auto;
+    padding:0.25em;
+}
+#brs-footer {
+    height:auto;
+	background-color:white;
+    text-align:center;
+    border-top: 1px dotted #294294;
+}
+#brs-address
+{
+    border: 1px solid #ccc;
+    padding:0.4em;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+#client-info
+{
+    font-size: 6em;
+    font-weight:900;
+    color:#294294;
+    position: absolute;
+	left: 1em;
+	bottom: 0.3em;
+	z-index: 3;
+}
+#brs-tab-content a {
+    color:#294294; 
+}
+#brs-tab-content a:hover {
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+}
+.brs-badge {
+    font-size:1.3em;
+    color:#294294; 
+}
+.brs-badge:hover {
+    color:#EF9C00;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+/*This is to deal with the collision between arcgis js api and bootstrap container class
+bootstrap uses media query to set max width for a container and arcgis uses the container class for the
+injected map parts so we're just going to use wildcard to set all map parts (e.g*/
+.container[id*='map'] {
+	max-width: 100% !important;
+}
+.brs-section
+{
+    margin: 0.5em 0 0.5em 0;   
+}
+.brs-header
+{
+    font-weight:900;   
+}
+.brs-subtle {
+    font-style:italic;
+    font-size:0.8em;
+}
+.brs-strong
+{
+    font-size:1.1em;
+    font-weight:700;
+}
+.brs-tabs.nav-tabs
+{
+    border-bottom: 2px solid #294294;
+    font-weight:900;
+}
+.nav-tabs.brs-tabs li.brs-tab>a
+{
+    border: none;
+    color: #666666;
+    background-color:transparent;
+}
+.nav-tabs.brs-tabs li.brs-tab>a:hover
+{
+    color: #294294;
+    background-color:transparent;
+}
+.nav-tabs.brs-tabs li.brs-tab.active>a
+{
+    border: none;
+    color: #294294;
+}
+.nav-tabs.brs-tabs .brs-tab.active
+{
+    border-bottom: 4px solid #EF9C00;
+}
+.nav-tabs.brs-tabs>brs-tab>li>a
+{
+    color: blue !important;
+    font-weight:900;
+}#logo-banner
+{
+    padding:2%;   
+}
+#brs-logo {
+	max-width:100% !important;
+    height:auto;
+    display:block;	
+}
+#center-container {
+	background-color:white;
+	margin:3px;
+	text-indent:2px;
+}
+.core-thing {
+    width: auto;
+    cursor: default;
+    font-size: 0.7em;
+}
+.brs-divider
+{
+    font-size:1.2em;
+    font-weight:900;
+    padding: 0.3em;
+}
+.brs-clear {
+    clear:both;
+}
+.project-images {
+	float: left; 
+    margin: 4px; 
+}
+.blog-entry-pane {
+	border: 2px solid #ccc;
+	border-radius: 10px;
+	font-size: 1em;
+	padding: 15px;
+}
+.blog-date {
+	font-size: 10px;
+}
+.blog-entry-pane:hover {
+	border: 2px solid #EF9C00;
+	background-color:#ccc;
+}
+div.modal-dialog
+{
+    width:auto;
+}
+li { list-style-type:none; }
+#legal-junk {
+	font-size:8pt;
+}
+#preloader
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	background-color: #fff;
+	position: absolute;
+	z-index: 999;
+}
+#preload-spinny-globe
+{
+    left:49%;
+    top:49%;
+    font-size:3em;
+    color:#EF9C00;
+    position: absolute;
+    z-index: 1000;
+}
+.bio-pic {
+	text-align:left;
+	padding-right:20px;
+	float:left;
+}

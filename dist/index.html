@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta http-equiv="Content-Type" content= "text/html; charset=utf-8">
+        <title>Bright Rain Solutions</title>
+        <link rel="icon" type="image/png" href="images/brsSun.png" >
+        <link rel="stylesheet" type="text/css" href="style/brs.css">
+        <link rel="stylesheet" type="text/css" href="http://js.arcgis.com/3.9/js/esri/css/esri.css">
+        <link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,600'>
+        <link rel="stylesheet" href="style/slimbox/slimbox2.css" type="text/css" media="screen" />
+
+        <script type="text/javascript" src="http://js.arcgis.com/3.9compact"></script>
+        <script type="text/javascript" src= "http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src= "http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/brs.min.js"></script>
+        <!--http://www.digitalia.be/software/slimbox2-->
+        <script type="text/javascript" src="js/slimbox2.js"></script>
+        <script type="text/javascript" src="js/brs-clients.geojson"></script>
+        <!--twitter feed-->
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+        <!-- Start of StatCounter Code for Default Guide -->
+        <script type="text/javascript">
+            var sc_project=8130924; 
+            var sc_invisible=1; 
+            var sc_security="3e2f040d"; 
+        </script>
+        <script type="text/javascript"
+                src="http://www.statcounter.com/counter/counter.js"></script>
+        <noscript><div class="statcounter"><a title="tumblr
+            statistics" href="http://statcounter.com/tumblr/"
+                                              target="_blank"><img class="statcounter"
+                                                                   src="http://c.statcounter.com/8130924/0/3e2f040d/1/"
+                                                                   alt="tumblr statistics"></a></div></noscript>
+        <!-- End of StatCounter Code for Default Guide -->
+    </head>
+    <body>
+        <div id="preloader"><i id="preload-spinny-globe" class="fa fa-globe fa-spin"></i></div>
+        <div id="map"></div>
+        <div id="client-info"></div>
+        <div id="main" class="container">           
+            <div id="brs-badge-container" class="row">
+                <span class="col-md-8">
+                    <div id="logo-banner" class=""><img id="brs-logo" class="img-responsive" src="images/brs-logo-narrow.png"></div>
+                </span> 
+                <a href="https://twitter.com/BrightRain" target="_blank" class="brs-badge col-md-1"><i class="fa fa-twitter"></i></a>
+                <a href="https://github.com/brightrain" target="_blank" class="brs-badge col-md-1"><i class="fa fa-github-alt"></i></a>
+                <a href="https://www.linkedin.com/pub/david-puckett/0/425/1a2/" target="_blank" class="brs-badge col-md-1">
+                    <i class="fa fa-linkedin-square"></i>
+                </a>
+            </div>
+            <ul class="brs-tabs nav nav-tabs">
+                <li class="brs-tab active"><a href="#home" data-toggle="tab">Bright Rain</a></li>
+                <li class="brs-tab"><a href="#clients" data-toggle="tab">Clients</a></li>
+                <li class="brs-tab"><a href="#projects" data-toggle="tab">Projects</a></li>
+                <li class="brs-tab"><a href="#blog" data-toggle="tab">Blog</a></li>
+                <li class="brs-tab"><a id="about-tab" href="#about" data-toggle="tab">About</a></li>
+            </ul>
+            <div id="brs-tab-content" class="tab-content">
+                <div class="tab-pane active" id="home">
+                    <div class="brs-section"><strong class="brs-strong">Bright Rain Solutions</strong> is a Geographic Information Systems (GIS) consulting 
+                        firm specializing in innovative spatial solutions providing <strong>GIS web and desktop application development</strong> 
+                        and <strong>systems integration</strong> services. 
+                        Clients include government agencies, non-profit organizations and private businesses.</div>
+                    <div id="core-comp" class="brs-section">
+                        <strong>Core Technologies</strong>
+                        <div class="brs-header"><i class="fa fa-link fa-fw"></i>Web</div>
+                        <span class="core-thing">HTML 5</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>CSS</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>ArcGIS JS API</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>Leaflet</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>Dojo</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>jQuery</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>JSON</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>REST</span>
+
+                        <div class="brs-header"><i class="fa fa-code fa-fw"></i>Coding</div>
+                        <span class="core-thing">Javascript</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>C#</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>Python</span>
+
+                        <div class="brs-header"><i class="fa fa-globe fa-fw"></i>GIS</div>
+                        <span class="core-thing">ArcGIS Desktop</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>ArcGIS Server</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>QGIS</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>TileMill</span>
+
+                        <div class="brs-header"><i class="fa fa-table fa-fw"></i>Data</div>
+                        <span class="core-thing">MS SQL Server</span>
+                        <span class="core-thing"><span class="brs-divider">|</span>PostgreSQL\PostGIS</span>
+                    </div>
+                </div>
+                <div class="tab-pane" id="clients">
+                    <div class="brs-section">
+                        <div class="brs-header">Environmental Protection Agency (EPA)</div>
+                        Bright Rain provides development and consultation services to the EPA in support of mapping the results of the 
+                        <a href="http://water.epa.gov/scitech/datait/databases/cwns/index.cfm" target="_blank">Clean Watersheds Needs Survey (CWNS)</a>. Services include the development of a custom web mapping application in conjunction with an application developed and hosted within the EPA GeoPlatform.
+                        <div class="brs-subtle">This work is being conducted as a sub-contractor to 
+                            <a href="http://indrasoft.com/" target="_blank">IndraSoft</a>
+                        </div>
+                    </div>
+                    <div class="brs-section">
+                        <div class="brs-header">City of Seattle | Seattle Department of Transportation</div>
+                        Development of two web map applications using ArcGIS JavaScript API: A Parking Locator map application designed to provide real-time information regarding parking options for the public within the City. A Construction Coordination map application designed to provide the public information about planned construction projects and events within the City.
+                    </div>
+                    <div class="brs-section">
+                        <div class="brs-header">City of Seattle | Seattle Public Utilities</div>
+                        Development of a custom set of GIS analysis tools to identify potential flood polygons within the City of Seattle based on closed contours.
+                        Enhancements to existing, custom GIS data editors.
+                        Development of custom functions to convert cadastral data previously maintained as ArcInfo coverages to true curves offered in the new ArcSDE geodatabase.
+                    </div>
+                    <div class="brs-section">
+                        <div class="brs-header">Antares Group, Landover, MD</div>
+                        Map interface development of a web based contract management tool that facilitates the management of contractual obligations between crop producers
+                        and biomass processors. The front end technology uses the <a href="http://leafletjs.com/" target="_blank">Leaflet mapping JavaScript library</a>
+                        to present the user with an aerial base map along with a tile layer created with <a href="http://mapbox.com/tilemill/" target="_blank">TileMill</a> and hosted with 
+                        <a href="http://mapbox.com" target="_blank">MapBox</a> that shows critical areas and labels. 
+                        The user can interact with fields, storage and access locations managed as vector graphics as well as enter and search associated tabular data. 
+                        The interface interacts with a backend api exposed via the <a href="http://www.asp.net/mvc" target="_blank">ASP.Net MVC framework</a>.
+                    </div>
+                    <div class="brs-section">
+                        <div class="brs-header">PACE Engineers, Seattle, WA</div>
+                        Implemented GIS at several water and sewer utility districts including the development of custom applications in support of asset inventory with GPS, development of asset management systems using ESRI software, integration between legacy database systems and GIS, and creation of network models. Implementation of GIS based maintenance management systems.
+                    </div>
+                    <div class="brs-section">
+                        <div class="brs-header">Your Castle Real Estate Services, Denver, CO</div>
+                        Development of desktop and web based real estate tools that support the company goal of offering innovative solutions to member agents.
+                    </div>
+                    <div class="brs-section">
+                        <div class="brs-header">US Forest Service | Mt. Baker / Snoqualmie National Forest, WA</div>
+                        Assessed dispersed recreation impact on fish populations in riparian areas. Geographic analysis included identifying high impact sites and high impact area using raster analysis.
+                    </div>
+                    <div class="brs-section">
+                        <div class="brs-header">Colorado State Parks</div>
+                        Instrumental in completing a comprehensive survey study. Roles included: mapping visitor distribution, data collection, data analysis and reporting. The results of which led to the publication of Colorado State Park&#39;s 1998 Visitation Study Report.
+                        Trail Use Distribution Study at Castlewood Canyon State Park using ArcView 3.2.
+                    </div>
+                </div>
+                <div class="tab-pane" id="projects">
+                    <div id="epa" class="brs-section">
+                        <div class="brs-header">EPA CWNS Mapper</div>
+                        <div class="brs-content">The EPA CWNS Mapper is a web map application that displays need amounts for every wastewater facility in the US as well as aggregated needs amounts at the state, county and congressional district level. The application is being developed using the <a href="https://github.com/Esri/esri-leaflet" target="_blank">esri-leaflet map library</a>.</div>
+                        <!--
+<br />
+<a href="http://" target="_blank">see it live</a>
+-->
+                    </div>
+                    <div id="spm"  class="brs-section">
+                        <div class="brs-header">Seattle Parking Map</div>
+                        <a href="images/spm.png" rel="lightbox" title="Seattle Parking Map">
+                            <img src="images/spm.png" width="200px" title="Seattle Parking Map" class="project-images" />
+                        </a>
+                        The <a href="http://web1.seattle.gov/sdot/seattleparkingmap/" target="_blank">Seattle Parking Map</a> is an interactive web map application that provides
+                        reliable parking information for the citizens and visitors to the city of Seattle.
+                        It was developed using the ArcGIS JavaScript API that consumes ArcGIS Server map services 
+                        through a REST interface.
+                    </div>
+                    <div id="erd" class="brs-section brs-clear">
+                        <div class="brs-header">ERD M+E</div>
+                        <a href="images/erdme.png" rel="lightbox" title="ERD Monitoring + Evaluation">
+                            <img src="images/erdme.png" width="200px" title="ERD Monitoring + Evaluation" class="project-images pull-right" />
+                        </a>	   			    
+                        The Episcopal Relief & Development Monitoring and Evaluation Program Management System is a web based
+                        map application that supports international and domestic aid programs from project budgeting to monitoring the progress of program efforts through final evaluation of the effectiveness of program and project activities.
+                    </div>
+                    <div id="floodAnalysis" class="brs-section">
+                        <div class="brs-header">Seattle Flood Prone Area Analysis</div>
+                        <a rel="lightbox" title="Seattle Flood Prone Analysis" href="images/madisonvalleydepression.jpg">
+                            <img src="images/madisonvalleydepression.jpg" width="200px" class="project-images"></img>
+                        </a>
+                    Programming and analysis was conducted for Seattle Public Utilities to identify closed contours that 
+                    represent potential flood areas within the City. A custom analysis model was built using ArcObjects
+                    that identified all closed contours within the city limits and analyzed them for potential flooding.
+                </div>
+                <div class="brs-clear"></div>
+            </div>
+            <div class="tab-pane" id="blog">
+                <h3><a href="http://blog.brightrain.com/">blog.brightrain.com</a></h3>
+                Most recent entries:
+                <br />
+                <ul id="blogList">
+                    <li>
+                        <div class="blog-date">4 Apr 2014</div>
+                        <a href="http://blog.brightrain.com/2014/04/04/togglability/" 
+                           title="Togglability">
+                            <div class="blog-entry-pane">
+                                Togglability: turning map layers on and off, with flatness
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <div class="blog-date">13 Mar 2014</div>
+                        <a href="http://blog.brightrain.com/2014/03/13/updated-geoconverter/" 
+                           title="Updated geoconverter: geojson <> arcjson">
+                            <div class="blog-entry-pane">
+                                Updated geoconverter: { geojson } <> { arcjson }
+                            </div>
+                                </a>
+                                </li>
+                            <li>
+                                <div class="blog-date">14 Aug 2013</div>
+                                <a href="http://blog.brightrain.com/2013/08/14/geojson-arcjson/" 
+                                   title="Convert geojson to arcjson">
+                                    <div class="blog-entry-pane">
+                                        Convert: geoJson > arcJson
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="blog-date">6 Dec 2012</div>
+                                <a href="http://blog.brightrain.com/2012/12/06/naip-wms-mapbox-satellite/" 
+                                   title="MapBox Satellite and NAIP WMS">
+                                    <div class="blog-entry-pane">
+                                        Side by Side: NAIP WMS | MapBox Satellite
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="blog-date">8 Nov 2012</div>
+                                <a href="http://blog.brightrain.com/2012/11/08/arcgis-fulcrum-add-in/" 
+                                   title="ArcGIS Fulcrum Add In">
+                                    <div class="blog-entry-pane">
+                                        ArcGIS Fulcrum Add In (open source and downloadable)
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="blog-date">11 Oct 2012</div>
+                                <a href="http://blog.brightrain.com/2012/10/11/4-elements-of-a-fair-and-viable-recruiterfreelancer-business-model/" 
+                                   title="4 Elements of a Fair and Viable Recruiter\Freelancer Business Model">
+                                    <div class="blog-entry-pane">
+                                        4 Elements of a Fair and Viable Recruiter\Freelancer Business Model
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <div class="blog-date">14 Aug 2012</div>
+                                <a href="http://blog.brightrain.com/2012/08/14/automate-updating-an-arcgis-online-feature-service/" 
+                                   title="Automate Updating an ArcGIS Online Feature&nbsp;Service">
+                                    <div class="blog-entry-pane">
+                                        Automate Updating an ArcGIS Online Feature&nbsp;Service
+                                    </div>
+                                </a>
+                            </li>
+                            </ul>
+                    </div>
+                <div class="tab-pane" id="about">
+                    <div>
+                        <div><img class="bio-pic" src="images/dp.jpg" height="75px">
+                            Bright Rain Solutions is owned and operated by David Puckett. David has more than 15 years of GIS experience 
+                            and holds a Bachelor of Arts degree in Sociology and Geography from Colorado State University 
+                            and earned GIS Certification from the University of Washington.
+                        </div>
+                    </div>
+                    <div class="brs-section">Bright Rain Solutions is a member of the 
+                        <a href="http://edn.esri.com/" target="_blank">Esri Developer Network</a>
+                    </div>
+                    <div class="brs-section">We are located on Old Town Square in beautiful Fort Collins, Colorado</div>
+                    <span id="brs-address" class="pull-left">
+                        <div>19 Old Town Square</div>
+                        238
+                        <div>Fort Collins, CO 80524</div>
+                    </span>
+                    <h4>
+                        <a href="BRS Statement of Qualifications.pdf" target="_blank"  class="pull-right brs-clear">
+                            <i class="fa fa-file-text"></i> Statement of Qualifications</a>
+                    </h4>
+                    <!--<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/BrightRain" data-widget-id="367761780073705472">Tweets by @BrightRain</a>-->
+                </div>
+            </div>
+            <div id="brs-footer">           
+                <div id="contactInfo">
+                    <span>p:	206.799.9701 | </span>
+                    <a href="mailto:david@brightrain.com">david@brightrain.com</a>
+                </div>
+                <div id="legal-junk">&#64; 2015 Bright Rain Solutions | All Rights Reserved</div>
+            </div>
+        </div>
+    </body>
+</html>
