@@ -12,7 +12,8 @@ var brs = {
     config: { 
         canvasBasemapURL: "http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer",
         canvasReferenceURL: "http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer",
-        blogPostsUrl: "https://public-api.wordpress.com/rest/v1/sites/blog.brightrain.com/posts/?number=8"
+        blogPostsUrl: "https://public-api.wordpress.com/rest/v1/sites/blog.brightrain.com/posts/?number=8",
+        clientData:"https://raw.githubusercontent.com/brightrain/brs-clients/master/brs-clients.geojson"
     },
     map: {},
     clients: {},
@@ -104,12 +105,13 @@ var brs = {
         }
     },
     addClientGraphics: function() {
-        //!!!ToDo: there is a repo on github where client geojson data is being maintained
-        //figure out how to access it directly, cors problems...
-        $.each(brs.clients.features, function(index, brsclient) {
+        $.getJSON(brs.config.clientData, function(clientGEOJSON) {
+        brs.clients = clientGEOJSON;
+            $.each(brs.clients.features, function(index, brsclient) {
             var pt = new esri.geometry.Point(brsclient.geometry.coordinates[0], 
                                              brsclient.geometry.coordinates[1],brs.map.SpatialReference);
             brs.graphicsLayerClients.add(new esri.Graphic(pt, null, {"Name":brsclient.properties.Name}));
+        });
         });
     },
     clientGraphicHover: function(evt) {
