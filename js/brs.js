@@ -91,7 +91,7 @@ var brs = {
         try
         {
             this.map.setExtent(new esri.geometry.Extent({
-                "xmin":-105.07,
+                "xmin":-105.08,
                 "ymin":40.5866,
                 "xmax":-105.063,
                 "ymax":40.5914,
