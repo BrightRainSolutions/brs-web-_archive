@@ -115,7 +115,7 @@ var brs = {
         });
     },
     clientGraphicHover: function(evt) {
-        //We could add text or image here to indicate the name as well.
+        brs.graphicsLayerHighlightClients.clear();
         brs.graphicsLayerHighlightClients.add(evt.graphic);
         brs.map.setMapCursor("pointer");
         dojo.byId("client-info").innerHTML = evt.graphic.attributes.Name;
@@ -123,7 +123,6 @@ var brs = {
     clientGraphicMouseOut: function(evt) {
         brs.map.setMapCursor("default");
         brs.graphicsLayerHighlightClients.clear();
-        brs.graphicsLayerClients.add(evt.graphic);
         dojo.byId("client-info").innerHTML = "";
     },
     clientGraphicClick: function(evt){
