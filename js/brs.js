@@ -89,7 +89,7 @@ var brs = {
                 "ymin":40.5866,
                 "xmax":-105.063,
                 "ymax":40.5914,
-                "spatialReference":new esri.SpatialReference({ wkid: 102100 })
+                "spatialReference":new esri.SpatialReference({ wkid: 4326 })
             }),true);
             return true;
         }
