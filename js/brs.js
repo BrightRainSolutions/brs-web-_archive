@@ -17,9 +17,9 @@ var brs = {
     },
     map: {},
     clients: {},
-    graphicsLayerClients: {},
-    graphicsLayerHighlightClients: {},
+    symbolHQ: {},
     symbolClient: {},
+    symbolHQHighlight: {},
     symbolHighlightClient: {},
     init: function() {
         try
@@ -59,26 +59,20 @@ var brs = {
     initFunctionality: function() {
         try
         {
-            var symbolHQ = new esri.symbol.PictureMarkerSymbol('images/brsSun.png', 23, 23);
-            this.map.graphics.add(new esri.Graphic(new esri.geometry.Point(-105.075739, 40.587838, new esri.SpatialReference({ wkid: 4326 })), symbolHQ));
+            brs.symbolHQ = new esri.symbol.PictureMarkerSymbol('images/brsSun.png', 23, 23);
+            brs.symbolHQHighlight = new esri.symbol.PictureMarkerSymbol('images/brsSun.png', 43, 43);
+            this.map.graphics.add(new esri.Graphic(new esri.geometry.Point(-105.075739, 40.587838, new esri.SpatialReference({ wkid: 4326 })), brs.symbolHQ, {"Name":"Bright Rain"}));
 
             brs.symbolClient = new esri.symbol.PictureMarkerSymbol('images/brsSuns2.png', 20, 20);
             brs.graphicsLayerClients = new esri.layers.GraphicsLayer();
-            var rendererClients = new esri.renderer.SimpleRenderer(brs.symbolClient);
-            brs.graphicsLayerClients.setRenderer(rendererClients);
-            brs.map.addLayer(brs.graphicsLayerClients);
 
             brs.addClientGraphics();
 
             brs.symbolHighlightClient = new esri.symbol.PictureMarkerSymbol('images/brsSuns1.png', 40, 40);
-            brs.graphicsLayerHighlightClients = new esri.layers.GraphicsLayer();
-            var rendererHighlightClients = new esri.renderer.SimpleRenderer(brs.symbolHighlightClient);
-            brs.graphicsLayerHighlightClients.setRenderer(rendererHighlightClients);
-            brs.map.addLayer(brs.graphicsLayerHighlightClients);
 
-            dojo.connect(brs.graphicsLayerClients, "onMouseOver", brs.clientGraphicHover);
-            dojo.connect(brs.graphicsLayerClients, "onMouseOut", brs.clientGraphicMouseOut);
-            dojo.connect(brs.graphicsLayerClients, "onClick", brs.clientGraphicClick);
+            dojo.connect(brs.map.graphics, "onMouseOver", brs.clientGraphicHover);
+            dojo.connect(brs.map.graphics, "onMouseOut", brs.clientGraphicMouseOut);
+            dojo.connect(brs.map.graphics, "onClick", brs.clientGraphicClick);
 
             return true;
         }
@@ -95,7 +89,7 @@ var brs = {
                 "ymin":40.5866,
                 "xmax":-105.063,
                 "ymax":40.5914,
-                "spatialReference":new esri.SpatialReference({ wkid: 4326 })
+                "spatialReference":new esri.SpatialReference({ wkid: 102100 })
             }),true);
             return true;
         }
@@ -108,21 +102,28 @@ var brs = {
         $.getJSON(brs.config.clientData, function(clientGEOJSON) {
         brs.clients = clientGEOJSON;
             $.each(brs.clients.features, function(index, brsclient) {
-            var pt = new esri.geometry.Point(brsclient.geometry.coordinates[0], 
-                                             brsclient.geometry.coordinates[1],brs.map.SpatialReference);
-            brs.graphicsLayerClients.add(new esri.Graphic(pt, null, {"Name":brsclient.properties.Name}));
-        });
+                var pt = new esri.geometry.Point(brsclient.geometry.coordinates[0], brsclient.geometry.coordinates[1], new esri.SpatialReference({ wkid: 4326 }));
+                var graphic = new esri.Graphic(pt, brs.symbolClient, {"Name":brsclient.properties.Name});
+                brs.map.graphics.add(graphic);
+            });
         });
     },
     clientGraphicHover: function(evt) {
-        brs.graphicsLayerHighlightClients.clear();
-        brs.graphicsLayerHighlightClients.add(evt.graphic);
+        if (evt.graphic.attributes.Name == "Bright Rain") {
+            evt.graphic.setSymbol(brs.symbolHQHighlight);
+        } else {
+            evt.graphic.setSymbol(brs.symbolHighlightClient);
+        }
         brs.map.setMapCursor("pointer");
         dojo.byId("client-info").innerHTML = evt.graphic.attributes.Name;
     },
     clientGraphicMouseOut: function(evt) {
         brs.map.setMapCursor("default");
-        brs.graphicsLayerHighlightClients.clear();
+        if (evt.graphic.attributes.Name == "Bright Rain") {
+            evt.graphic.setSymbol(brs.symbolHQ);
+        } else {
+            evt.graphic.setSymbol(brs.symbolClient);
+        }
         dojo.byId("client-info").innerHTML = "";
     },
     clientGraphicClick: function(evt){

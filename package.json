@@ -12,5 +12,8 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/brightrain/brs-web.git"
+  },
+  "dependencies": {
+    "grunt-cli": "^1.2.0"
   }
 }
