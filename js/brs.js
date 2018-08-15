@@ -10,10 +10,10 @@ function fireup() {
 }
 var brs = {
     config: { 
-        canvasBasemapURL: "http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer",
-        canvasReferenceURL: "http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer",
-        blogPostsUrl: "https://public-api.wordpress.com/rest/v1/sites/blog.brightrain.com/posts/?number=8",
-        clientData:"https://raw.githubusercontent.com/brightrain/brs-clients/master/brs-clients.geojson"
+        canvasBasemapURL: "//services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer",
+        canvasReferenceURL: "//services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer",
+        blogPostsUrl: "//public-api.wordpress.com/rest/v1/sites/blog.brightrain.com/posts/?number=8",
+        clientData:"//raw.githubusercontent.com/brightrain/brs-clients/master/brs-clients.geojson"
     },
     map: {},
     clients: {},
